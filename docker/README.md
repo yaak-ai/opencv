@@ -3,7 +3,7 @@ Build YaakTech OpenCV Image from [`docker`](https://github.com/yaak-ai/opencv/tr
 
 ### Table
 
-- [Prerequisites](https://github.com/yaak-ai/opencv/tree/docker/docker#docker)
+- [Prerequisites](https://github.com/yaak-ai/opencv/tree/docker/docker#prerequisites)
 - Build OpenCV
   - [CPU](https://github.com/yaak-ai/opencv/tree/docker/docker#opencv)
   - GPU (TODO)
