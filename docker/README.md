@@ -15,10 +15,15 @@ Build YaakTech OpenCV Image from [`docker`](https://github.com/yaak-ai/opencv/tr
   3. Logout and Login again (for Linux)
 
 #### Docker Compose
-  1. Follow steps outlined [here](https://github.com/yaak-ai/service-calibration/blob/master/scripts/install_docker.sh)
+
+  Follow steps outlined [here](https://github.com/yaak-ai/service-calibration/blob/master/scripts/install_docker.sh)
 
 #### OpenCV
-  1. `docker-compose -f docker/ubuntu/docker-compose.yml build opencv`
+```
+  docker-compose -f docker/ubuntu/docker-compose.yml build opencv
+```
 
 #### DockerHub
-  1. `docker-compose -f docker/ubuntu/docker-compose.yml push opencv`
+```
+  docker-compose -f docker/ubuntu/docker-compose.yml push opencv
+```
