@@ -10,7 +10,8 @@ RUN apt-get update && \
     libboost-all-dev \
     libcurl4-openssl-dev \
     libssl-dev python3 python3-pip \
-    python3-numpy python3-virtualenv
+    python3-numpy python3-virtualenv && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY . /opt/opencv
 
@@ -28,7 +29,9 @@ RUN mkdir -p /opt/opencv/third_party && \
     -D CMAKE_INSTALL_PREFIX=../dist \
     -D HAVE_opencv_python3=ON \
     -DPYTHON_DEFAULT_EXECUTABLE=$(which python3) .. && \
-    make -j && make install && cd ..
+    make -j && make install && cd .. && \
+    ldconfig && \
+    rm -rf /var/lib/apt/lists/*
 
 FROM ubuntu:20.04
 
