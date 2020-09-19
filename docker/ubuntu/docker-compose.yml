@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+
+  opencv:
+    build:
+      context: ../../
+      dockerfile: docker/opencv/Dockerfile
+    image: yaaktech/opencv-x86_64:latest-cpu
+    volumes:
+      - $HOME/.cache:/root/.cache

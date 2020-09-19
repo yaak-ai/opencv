@@ -1,0 +1,37 @@
+# syntax=docker/dockerfile:experimental
+FROM ubuntu:20.04 as build
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get -y install \
+    git build-essential \
+    wget cmake ffmpeg \
+    libboost-all-dev \
+    libcurl4-openssl-dev \
+    libssl-dev python3 python3-pip \
+    python3-numpy python3-virtualenv
+
+COPY . /opt/opencv
+
+WORKDIR /opt/opencv
+
+# Build and Install OpenCV
+
+RUN mkdir -p /opt/opencv/third_party && \
+    git clone https://github.com/opencv/opencv_contrib.git -b master third_party/opencv_contrib && \
+    mkdir build && cd build && \
+    cmake -D CMAKE_BUILD_TYPE=RELEASE -DBUILD_TIFF=ON -D \
+    INSTALL_C_EXAMPLES=OFF -D OPENCV_ENABLE_NONFREE=ON -D \
+    ENABLE_CONTRIB=1 -D OPENCV_EXTRA_MODULES_PATH=../third_party/opencv_contrib/modules \
+    -D BUILD_opencv_python2=OFF -D BUILD_opencv_python3=ON \
+    -D CMAKE_INSTALL_PREFIX=../dist \
+    -D HAVE_opencv_python3=ON \
+    -DPYTHON_DEFAULT_EXECUTABLE=$(which python3) .. && \
+    make -j && make install && cd ..
+
+FROM ubuntu:20.04
+
+COPY --from=build /opt/opencv/dist /opt/opencv
+
+WORKDIR /opt/opencv
