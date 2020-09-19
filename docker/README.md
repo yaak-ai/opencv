@@ -3,14 +3,13 @@ Build YaakTech OpenCV Image from [`docker`](https://github.com/yaak-ai/opencv/tr
 
 ### Table
 
-- Prerequisites
+- [Prerequisites](https://github.com/yaak-ai/opencv/tree/docker/docker#docker)
 - Build OpenCV
-  - CPU
+  - [CPU](https://github.com/yaak-ai/opencv/tree/docker/docker#opencv)
   - GPU (TODO)
-- Push Image to DockerHub
+- [Push Image to DockerHub](https://github.com/yaak-ai/opencv/tree/docker/docker#dockerhub)
 
-### Prerequisites
-#### Docker
+#### Prerequisites
   1. Install docker for [Mac OS](https://www.docker.com/products/docker-desktop) or [Linux](https://docs.docker.com/engine/install/ubuntu/).
   2. `sudo usermod -aG docker $USER`
   3. Logout and Login again (for Linux)
