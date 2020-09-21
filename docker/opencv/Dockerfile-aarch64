@@ -19,6 +19,7 @@ COPY . /opt/opencv
 WORKDIR /opt/opencv
 
 # Build and Install OpenCV
+# https://docs.opencv.org/2.4/doc/tutorials/introduction/crosscompilation/arm_crosscompile_with_cmake.html
 
 RUN mkdir -p /opt/opencv/third_party && \
     git clone https://github.com/opencv/opencv_contrib.git -b master third_party/opencv_contrib && \
