@@ -21,6 +21,7 @@ Build YaakTech OpenCV Image from [`docker`](https://github.com/yaak-ai/opencv/tr
 #### OpenCV
 ```
   docker-compose -f docker/ubuntu/docker-compose.yml build opencv
+  docker-compose -f docker/ubuntu/docker-compose.yml build opencv-aarch64
 ```
 
 #### DockerHub
