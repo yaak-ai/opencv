@@ -9,3 +9,19 @@ services:
     image: yaaktech/opencv-x86_64:latest-cpu
     volumes:
       - $HOME/.cache:/root/.cache
+
+  opencv-aarch64:
+    build:
+      context: ../../
+      dockerfile: docker/opencv/Dockerfile-aarch64
+    image: yaaktech/opencv-aarch64:latest-cpu
+    volumes:
+      - $HOME/.cache:/root/.cache
+
+  opencv-gpu:
+    build:
+      context: ../../
+      dockerfile: docker/opencv/Dockerfile-gpu
+    image: yaaktech/opencv-x86_64:latest-gpu
+    volumes:
+      - $HOME/.cache:/root/.cache
